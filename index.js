@@ -5,11 +5,11 @@ const dice = document.querySelector("#dices")
 
 async function fetchData () {
     const response = await fetch("https://api.adviceslip.com/advice");
-    const json = await response.json();
-    console.log(json);
-
-    adviceId.innerHTML = `A D V I C E #${json.slip.id}`;
-    adviceBody.innerHTML = `"${json.slip.advice}"`;
+    const data = await response.json();
+    console.log(data);
+    adviceId.innerHTML = `A D V I C E #${data.slip.id}`;
+    adviceBody.innerHTML = `"${data.slip.advice}"`;
 }
+
 
 dice.addEventListener("click", fetchData)
